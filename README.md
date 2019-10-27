@@ -2,6 +2,8 @@
 ---
 Just a simple script to generate JScript code for calling Win32 API functions using XLM/Excel 4.0 macros via Excel.Application COM object and "ExecuteExcel4Macro" method.
 
+The script will generate a simple payload for performing a very basic shellcode injection by calling VirtualAlloc -> WriteProcessMemory -> CreateThread (just a poc, better options can be considered.)
+
 ### Usage
 ---
   ``-o string
