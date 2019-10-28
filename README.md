@@ -25,7 +25,7 @@ Currently not detected on VT;
 ---
 Generate a simple JS using ``go run genXLM.go -sh shellcode.bin -wsh js`` and have a look at the generated js code "self-descriptive". 
 
-Check calc.hta, calc.js for examples. shellcode was generated using msvenom.
+Check calc.hta, calc.js for examples. shellcode was generated using msfvenom.
 
 ### References:
 ---
